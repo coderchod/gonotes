@@ -5,12 +5,13 @@ import(
         "fmt"
         _"github.com/mattn/go-sqlite3"
 	"os"
+	"os/user"
 	"strings"
 )
 
 func main(){
 
-        db, err := sql.Open("sqlite3", "./notes.db")
+        db, err := sql.Open("sqlite3", user.HomeDir + "/gonotes/notes.db")
         checkErr(err)
 
         count := len(os.Args)
